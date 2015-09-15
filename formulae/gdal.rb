@@ -2,7 +2,7 @@ require 'formula'
 
 class Gdal < Formula
   homepage 'http://www.gdal.org/'
-  url "http://download.osgeo.org/gdal/1.11.1/gdal-1.11.1.tar.gz"
+  url "http://download.osgeo.org/gdal/1.11.2_3/gdal-1.11.2_3.tattps://homebrew.bintray.com/bottles/r.gz"
   sha1 "e2c67481932ec9fb6ec3c0faadc004f715c4eef4"
   revision 2
 
@@ -130,7 +130,7 @@ class Gdal < Formula
       "--with-geos=#{HOMEBREW_PREFIX}/bin/geos-config",
       "--with-static-proj4=#{HOMEBREW_PREFIX}",
       "--with-libjson-c=#{Formula["json-c"].opt_prefix}",
-      "--with-hdf4=#{HOMEBREW_CELLAR}/hdf4/4.2.10",
+      "--with-hdf4=#{HOMEBREW_CELLAR}/hdf4/4.2.11",
 
       # GRASS backend explicitly disabled.  Creates a chicken-and-egg problem.
       # Should be installed separately after GRASS installation using the
@@ -204,7 +204,7 @@ class Gdal < Formula
     end
 
     args << "--with-libkml=#{libexec}" if build.with? "libkml"
-    args << "--with-hdf4=#{HOMEBREW_CELLAR}/hdf4/4.2.10" if build.with? "hdf4"
+    args << "--with-hdf4=#{HOMEBREW_CELLAR}/hdf4/4.2.11" if build.with? "hdf4"
 
     # Python is installed manually to ensure everything is properly sandboxed.
     args << '--without-python'
@@ -254,7 +254,7 @@ class Gdal < Formula
     end
 
     if build.with? "hdf4"
-      system "./configure", "--with-hdf4=#{HOMEBREW_CELLAR}/hdf4/4.2.10"
+      system "./configure", "--with-hdf4=#{HOMEBREW_CELLAR}/hdf4/4.2.11"
     end
 
     # Linking flags for SQLite are not added at a critical moment when the GDAL
